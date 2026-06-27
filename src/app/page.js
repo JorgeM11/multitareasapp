@@ -44,6 +44,27 @@ const APPS = [
       </svg>
     ),
   },
+  {
+    title: "Finanzas",
+    description: "Controla tus ingresos y gastos, gestiona tus presupuestos mensuales y recibe consejos financieros con inteligencia artificial.",
+    href: "/finanzas",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="h-full w-full"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M2.25 8.25h19.5M2.25 9h19.5m-19.5 8.25h3m-3 0h3m-3 0V9a2.25 2.25 0 012.25-2.25h15A2.25 2.25 0 0121.75 9v8.25a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 17.25zM12 12.75h.008v.008H12v-.008zM12 15h.008v.008H12V15z"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function Home() {
