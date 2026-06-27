@@ -17,7 +17,7 @@ export default function ConversorPage() {
   const [lastUpdatedLocal, setLastUpdatedLocal] = useState("");
 
   // Calculator states
-  const [amount, setAmount] = useState("100");
+  const [amount, setAmount] = useState("1");
   const [sourceCur, setSourceCur] = useState("USD");
   const [targetCur, setTargetCur] = useState("VES");
   const [result, setResult] = useState(0);
