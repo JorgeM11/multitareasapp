@@ -12,6 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://sistema-multitarea.vercel.app"),
   title: {
     default: "Sistema Multitarea",
     template: "%s | Sistema Multitarea",
@@ -25,6 +26,33 @@ export const metadata = {
   },
   formatDetection: {
     telephone: false,
+  },
+  icons: {
+    icon: "/logo_app1.png",
+    shortcut: "/logo_app1.png",
+    apple: "/logo_app1.png",
+  },
+  openGraph: {
+    title: "Sistema Multitarea",
+    description: "Hub inteligente y multitarea con herramientas integradas de productividad.",
+    url: "https://sistema-multitarea.vercel.app",
+    siteName: "Sistema Multitarea",
+    images: [
+      {
+        url: "/logo_app1.png",
+        width: 512,
+        height: 512,
+        alt: "Logo Sistema Multitarea",
+      },
+    ],
+    locale: "es_VE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sistema Multitarea",
+    description: "Hub inteligente y multitarea con herramientas integradas de productividad.",
+    images: ["/logo_app1.png"],
   },
 };
 

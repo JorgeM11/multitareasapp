@@ -61,11 +61,11 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {/* App Logo Image */}
             <Image
-              src="/logo_app.png"
+              src="/logo_app1.png"
               alt="Logo Sistema Multitarea"
               width={40}
               height={40}
-              className="rounded-xl object-contain shadow-md shadow-indigo-500/10 ring-1 ring-slate-800"
+              className="rounded-xl object-cover shadow-md shadow-indigo-500/10 ring-1 ring-slate-800"
             />
             <div>
               <h1 className="text-xl font-bold tracking-tight text-white">Sistema Multitarea</h1>

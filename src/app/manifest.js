@@ -13,6 +13,24 @@ export default function manifest() {
         sizes: "any",
         type: "image/x-icon",
       },
+      {
+        src: "/logo_app1.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/logo_app1.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/logo_app1.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
     ],
   };
 }
