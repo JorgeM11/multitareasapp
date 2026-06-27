@@ -75,7 +75,7 @@ export default function CustomSelect({ value, onChange, options, id, label }) {
         aria-label={label}
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
-        className="flex w-full items-center justify-between rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-sm font-bold text-slate-200 transition duration-200 hover:border-slate-700 hover:text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
+        className="flex w-full items-center justify-between rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-[10px]  md:text-sm font-bold text-slate-200 transition duration-200 hover:border-slate-700 hover:text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
       >
         <span className="flex items-center gap-2">
           {selectedOption.icon && (
