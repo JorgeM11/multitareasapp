@@ -33,7 +33,26 @@ Este es un hub centralizado en forma de **Progressive Web App (PWA)** desarrolla
 *   **Listas de Tareas (Checklists)**: Si la nota redactada contiene múltiples elementos (separados por comas, conjunciones o saltos de línea), el sistema la convierte automáticamente en un **checklist interactivo**. Cada elemento cuenta con un checkbox independiente para marcarlo como completado, y al tachar todos los elementos, la nota entera se auto-completa.
 *   **Editor de Notas Manual Expandido**: En la pestaña "Secciones y Notas" se puede hacer clic en cualquier tarjeta o en el botón **"Abrir"** (representado con un ícono de edición de React Icons) para desplegar un editor modal expandido de alta definición (`max-w-xl`), con una caja de texto de **10 filas de altura** para redactar cómodamente. Si se escriben varias líneas en la descripción, se convertirá automáticamente en checklist.
 *   **Scroll en Categorías**: El selector de categorías dentro del modal utiliza `CustomSelect` limitado a una altura máxima de **`max-h-[142px]`** para encuadrar exactamente tres categorías en pantalla, forzando un scroll vertical para revelar las demás.
-*   **Vectores React Icons**: Emojis planos sustituidos por iconos vectoriales SVG de alta definición de la librería `react-icons/fa`.
+### 3. Finanzas (`/finanzas`) [Hito 4]
+*   **Balance Consolidado**: Resumen en tiempo real del **Balance Total** (verde/rojo según tendencia), **Ingresos** (verde esmeralda) y **Egresos** (carmesí suave).
+*   **Registro Manual de Movimientos**: Formulario de carga rápida de transacciones. Permite conmutar dinámicamente entre Ingresos y Gastos, filtrando las categorías adecuadas y asignándolas vía `CustomSelect`.
+*   **Límites de Presupuesto Mensual**: Panel interactivo para configurar el presupuesto máximo de gastos mensuales por sección (Alimentos, Servicios, Transporte, Ocio, Varios).
+*   **Alertas Visuales de Consumo**:
+    *   Gasto < 80%: Barra de progreso de color azul.
+    *   Gasto >= 80%: Barra de progreso de color amarillo/naranja con badge de advertencia.
+    *   Gasto >= 100%: Barra de progreso de color rojo parpadeante (`animate-pulse`) con advertencia crítica de límite superado.
+*   **Historial de Transacciones**: Lista detallada de registros filtrable por tipo y categoría, con opción de eliminación y recálculo automático de balances.
+*   **Sincronización**: Almacenamiento local automático en `localStorage`.
+*   **Registro Automatizado por IA [Hito 5]**:
+    *   **Consola de Asistente IA**: Módulo interactivo de chat integrado en el Dashboard financiero para registrar o eliminar movimientos mediante comandos escritos en lenguaje natural (ej: *"gaste 450 en farmacia hoy"*).
+    *   **Procesamiento de Lenguaje Natural**: Conexión con la API de Gemini 2.5 Flash (`/api/finanzas/ai`) que procesa la frase y la mapea en variables estructuradas (monto, tipo, categoría y descripción), con soporte para calcular fechas de comandos relativos (ej: *"ayer"*, *"el lunes"*).
+    *   **Fallback por Expresiones Regulares**: Intérprete alternativo local en Node.js que procesa comandos simulados en caso de desconexión o falta de API Key en el entorno.
+    *   **Persistencia de Consola**: El historial de interacción con el asistente financiero se almacena localmente en `localStorage`.
+*   **Gráficos de Distribución SVG y Asesor Financiero [Hito 6]**:
+    *   **Gráfico de Dona Dinámico**: Representación visual circular utilizando elementos `<circle>` en SVG puro para reflejar la proporción de gastos del mes.
+    *   **Interactividad SVG**: Efecto de transición en hover que incrementa dinámicamente el grosor del segmento y despliega tooltip detallado.
+    *   **Leyenda Inteligente**: Desglose lateral con colores coincidentes que reporta el monto total consumido por sección en VES y su porcentaje.
+    *   **Consejo de IA**: Botón interactivo *"Pedir Análisis a Asistente IA"* que abre el popover de chat y gatilla una solicitud de análisis a Gemini, quien emite un diagnóstico financiero estructurado e identifica la principal fuga de capital.
 
 ---
 
