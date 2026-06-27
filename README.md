@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistema Multitarea (PWA Hub)
 
-## Getting Started
+Este es un hub centralizado en forma de **Progressive Web App (PWA)** desarrollado con **Next.js (App Router)**, **Tailwind CSS v4**, y diseñado bajo estrictos criterios de accesibilidad (**WCAG 2.1 AA**). El hub sirve como contenedor modular para mini-aplicaciones de productividad optimizadas para cualquier dispositivo.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Arquitectura General y PWA
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*   **Diseño Responsivo Intuitivo**: Grid de navegación principal adaptado a pantallas de escritorio y móviles. En dispositivos móviles, las mini-aplicaciones se muestran en forma de menú de accesos compactos (ícono + título).
+*   **Branding y Assets**: Integración del logotipo oficial (`logo_app1.png`) configurado con proporción cuadrada y recorte `object-cover`.
+*   **PWA Integrado**: Configurado con manifiesto dinámico (`manifest.js`) que define el inicio standalone, color de tema oscuro y provee los íconos de instalación en resoluciones estándar (`192x192`, `512x512` y variante `maskable` para Android).
+*   **SEO de Alto Rendimiento**: Incluye `metadataBase`, metaetiquetas Open Graph (OG) y Twitter Cards en `layout.js` para previsualizar la carátula y el logo oficial al compartir enlaces de la aplicación.
+*   **Prevención de Zoom en Móviles**: Viewport configurado estrictamente para evitar el auto-zoom nativo al interactuar con inputs en dispositivos móviles, mejorando la ergonomía de uso.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Mini-Aplicaciones Integradas
 
-## Learn More
+### 1. Conversor y Monitor de Divisas (`/conversor`)
+*   **Cotizaciones Reales (Venezuela)**: Consume las tasas oficiales en tiempo real del Banco Central de Venezuela (BCV) para **Dólar (USD)** y **Euro (EUR)** directamente desde los endpoints de DolarApi (`ve.dolarapi.com`). Las tasas no varían por compra/venta, operando bajo el valor único de referencia (`promedio`).
+*   **Calculadora de Conversión**: Permite realizar cálculos cruzados entre USD, EUR y VES. Incluye un botón para intercambiar monedas (Swap `⇄`) con lógica de división automática e inversas.
+*   **Micro-animaciones**: Botón de actualizar tasas con animación de rotación de 180° en hover y giro continuo (`animate-spin`) en carga.
+*   **CustomSelect**: Menú de selección de divisas de vidrio oscuro con animaciones fluidas de entrada (escala/desvanecimiento), flecha giratoria y badges circulares para las monedas.
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Notas con IA Clasificadora (`/notas`) [Hito 3]
+*   **Chat Conversacional con IA**: Interfaz interactiva donde el usuario puede redactar sus notas o dar órdenes. Al enviar un mensaje, se invoca a la API de **Google Gemini 2.5 Flash** (`/api/ai`) para interpretar e interactuar contextualmente.
+*   **Acciones Autónomas**: La IA no solo crea notas, sino que es capaz de analizar el listado de notas activas para **actualizar**, **marcar como completada/incompleta** o **eliminar** notas existentes basándose en el lenguaje natural del usuario (ej: *"actualiza la nota de mercado y ponle comprar cilantro"*, *"borra el recordatorio de las 3pm"*).
+*   **Fallback Local Inteligente**: Si la variable `GEMINI_API_KEY` no está configurada, la ruta API utiliza un avanzado parser por expresiones regulares a nivel de servidor que simula el procesamiento inteligente de la IA sin interrumpir la experiencia.
+*   **Listas de Tareas (Checklists)**: Si la nota redactada contiene múltiples elementos (separados por comas, conjunciones o saltos de línea), el sistema la convierte automáticamente en un **checklist interactivo**. Cada elemento cuenta con un checkbox independiente para marcarlo como completado, y al tachar todos los elementos, la nota entera se auto-completa.
+*   **Editor de Notas Manual Expandido**: En la pestaña "Secciones y Notas" se puede hacer clic en cualquier tarjeta o en el botón **"Abrir"** (representado con un ícono de edición de React Icons) para desplegar un editor modal expandido de alta definición (`max-w-xl`), con una caja de texto de **10 filas de altura** para redactar cómodamente. Si se escriben varias líneas en la descripción, se convertirá automáticamente en checklist.
+*   **Scroll en Categorías**: El selector de categorías dentro del modal utiliza `CustomSelect` limitado a una altura máxima de **`max-h-[142px]`** para encuadrar exactamente tres categorías en pantalla, forzando un scroll vertical para revelar las demás.
+*   **Vectores React Icons**: Emojis planos sustituidos por iconos vectoriales SVG de alta definición de la librería `react-icons/fa`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📋 Configuración y Ejecución Local
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
+2.  **Configurar variables de entorno**:
+    Crea un archivo `.env.local` en la raíz del proyecto y agrega tu API Key de Gemini:
+    ```env
+    GEMINI_API_KEY=tu_clave_api_de_google_studio_aqui
+    ```
+3.  **Correr en modo desarrollo**:
+    ```bash
+    npm run dev
+    ```
+4.  **Generar compilación de producción**:
+    ```bash
+    npm run build
+    ```
+5.  **Correr compilación local**:
+    ```bash
+    npm run start
+    ```

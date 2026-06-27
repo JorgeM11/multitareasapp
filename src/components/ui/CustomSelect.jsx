@@ -104,7 +104,7 @@ export default function CustomSelect({ value, onChange, options, id, label }) {
         role="listbox"
         aria-label={label}
         tabIndex={-1}
-        className={`absolute z-50 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-slate-850 bg-slate-950/95 p-1.5 shadow-2xl backdrop-blur-xl transition-all duration-200 ease-out origin-top ${
+        className={`absolute z-50 mt-2 max-h-[142px] w-full overflow-y-auto rounded-xl border border-slate-850 bg-slate-950/95 p-1.5 shadow-2xl backdrop-blur-xl transition-all duration-200 ease-out origin-top ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none"

@@ -24,9 +24,9 @@ const APPS = [
     ),
   },
   {
-    title: "Finanzas",
-    description: "Controla tus ingresos y gastos diarios, visualiza estadísticas y gestiona tus presupuestos.",
-    href: "/finanzas",
+    title: "Notas con IA",
+    description: "Organiza tus recordatorios, tareas, compras e ideas de forma automática a través de un chat con inteligencia artificial.",
+    href: "/notas",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ const APPS = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M12 6v12m-3-2.818l.214-.172a4 4 0 015.572-.084L15 15m-6-6l.214-.172a4 4 0 015.572-.084L15 9m-1.5-6h-3.5a1.5 1.5 0 00-1.5 1.5v15A1.5 1.5 0 0010.5 21h3.5a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0014.5 3z"
+          d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
         />
       </svg>
     ),
