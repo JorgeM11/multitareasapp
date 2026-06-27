@@ -75,7 +75,7 @@ export default function CustomSelect({ value, onChange, options, id, label }) {
         aria-label={label}
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
-        className="flex w-full items-center justify-between rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-[10px]  md:text-sm font-bold text-slate-200 transition duration-200 hover:border-slate-700 hover:text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
+        className="flex w-full items-center justify-between rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-[9px] md:text-sm font-bold text-slate-200 transition duration-200 hover:border-slate-700 hover:text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
       >
         <span className="flex items-center gap-2">
           {selectedOption.icon && (
@@ -120,12 +120,12 @@ export default function CustomSelect({ value, onChange, options, id, label }) {
               aria-selected={isSelected}
               onClick={() => handleSelect(opt.value)}
               onMouseEnter={() => setFocusedIndex(idx)}
-              className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold transition-all duration-150 cursor-pointer ${
+              className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-xs md:text-sm font-semibold transition-all duration-150 cursor-pointer ${
                 isSelected
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/20"
                   : isFocused
                   ? "bg-slate-900 text-white"
-                  : "text-slate-350 hover:bg-slate-900/50 hover:text-white"
+                  : "text-slate-355 hover:bg-slate-900/50 hover:text-white"
               }`}
             >
               <span className="flex items-center gap-2">

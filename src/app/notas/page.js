@@ -76,6 +76,52 @@ export default function NotesPage() {
     }
   }, []);
 
+  // Request notifications permission on mount
+  useEffect(() => {
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  // Background reminder notification loop (checks every 5 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      setNotes((currentNotes) => {
+        let changed = false;
+        const nextNotes = currentNotes.map((note) => {
+          if (
+            note.category === "Recordatorios" &&
+            note.reminderDate &&
+            !note.notified
+          ) {
+            const reminderTime = new Date(note.reminderDate).getTime();
+            if (now >= reminderTime) {
+              if ("Notification" in window && Notification.permission === "granted") {
+                new Notification(`⏰ Recordatorio: ${note.title}`, {
+                  body: note.content || "¡Es hora de tu recordatorio programado!",
+                  icon: "/logo_app1.png",
+                  vibrate: [200, 100, 200]
+                });
+              }
+              changed = true;
+              return { ...note, notified: true, isCompleted: true };
+            }
+          }
+          return note;
+        });
+
+        if (changed) {
+          localStorage.setItem("sistema-multitarea-notes", JSON.stringify(nextNotes));
+          return nextNotes;
+        }
+        return currentNotes;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Helpers to update and persist notes
   const saveNotes = (updatedNotes) => {
     setNotes(updatedNotes);
@@ -105,7 +151,7 @@ export default function NotesPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: messageText, notes }),
+        body: JSON.stringify({ message: messageText, notes, chatHistory }),
       });
 
       if (!response.ok) throw new Error("AI processing failed");
@@ -123,6 +169,8 @@ export default function NotesPage() {
           isTask: data.noteData.isTask,
           isCompleted: false,
           listItems: data.noteData.listItems || null,
+          reminderDate: data.noteData.reminderDate || null,
+          notified: false,
           createdAt: new Date().toISOString()
         };
         updatedNotes = [newNote, ...updatedNotes];
@@ -135,7 +183,9 @@ export default function NotesPage() {
                 title: data.noteData.title,
                 content: data.noteData.content || "",
                 isTask: data.noteData.isTask,
-                listItems: data.noteData.listItems || null
+                listItems: data.noteData.listItems || null,
+                reminderDate: data.noteData.reminderDate !== undefined ? data.noteData.reminderDate : n.reminderDate,
+                notified: data.noteData.reminderDate !== undefined ? false : n.notified
               }
             : n
         );
@@ -262,7 +312,7 @@ export default function NotesPage() {
               </svg>
             </Link>
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-white">Notas con IA</h1>
+              <h1 className="text-lg sm:text-xl font-bold text-white">Notas</h1>
               <p className="text-xs text-slate-400">Clasificación inteligente automática</p>
             </div>
           </div>
