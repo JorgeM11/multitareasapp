@@ -12,14 +12,14 @@ export default function AppCard({ title, description, icon, href }) {
       
       <div className="flex flex-col items-center sm:items-start w-full">
         {/* Icon wrapper - App Icon style on mobile, card icon on desktop */}
-        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-900 border border-slate-800/60 text-indigo-400 shadow-inner transition-all duration-300 group-hover:bg-indigo-950/30 group-hover:text-indigo-300 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] sm:mb-4 sm:h-12 sm:w-12 sm:rounded-xl sm:bg-slate-800/60 sm:border-slate-700/50">
-          <span className="h-10 w-10 sm:h-6 sm:w-6 flex items-center justify-center" aria-hidden="true">
+        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-slate-900 border border-slate-800/60 text-indigo-400 shadow-inner transition-all duration-300 group-hover:bg-indigo-950/30 group-hover:text-indigo-300 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] sm:mb-4 sm:h-12 sm:w-12 sm:rounded-xl sm:bg-slate-800/60 sm:border-slate-700/50">
+          <span className="h-9 w-9 sm:h-6 sm:w-6 flex items-center justify-center" aria-hidden="true">
             {icon}
           </span>
         </div>
         
         {/* Title */}
-        <h2 className="mt-2.5 text-xs font-bold leading-tight tracking-wide text-slate-200 group-hover:text-white transition-colors duration-300 sm:mt-0 sm:text-xl sm:font-semibold sm:tracking-tight sm:text-slate-100">
+        <h2 className="mt-2.5 text-sm font-bold leading-tight tracking-wide text-slate-200 group-hover:text-white transition-colors duration-300 sm:mt-0 sm:text-xl sm:font-semibold sm:tracking-tight sm:text-slate-100">
           {title}
         </h2>
         

@@ -54,6 +54,13 @@ Este es un hub centralizado en forma de **Progressive Web App (PWA)** desarrolla
     *   **Leyenda Inteligente**: Desglose lateral con colores coincidentes que reporta el monto total consumido por sección en VES y su porcentaje.
     *   **Consejo de IA**: Botón interactivo *"Pedir Análisis a Asistente IA"* que abre el popover de chat y gatilla una solicitud de análisis a Gemini, quien emite un diagnóstico financiero estructurado e identifica la principal fuga de capital.
 
+### 4. Proyectos y Listas Inteligentes (`/proyectos`)
+*   **Vistas de Tablero y Lista**: Alterna entre una interfaz visual de **Tablero Kanban** ("Por Hacer", "En Progreso", "Completado") ideal para computadoras, y una **Vista de Lista** compacta y tabular para visualizar rápidamente los detalles de vencimiento y prioridad.
+*   **Desglose de Tareas Asistido por IA**: Endpoint `/api/proyectos/ai` conectado con **Gemini 2.5 Flash** que toma el título y descripción de cualquier tarea compleja y genera un desglose secuencial de 4 a 6 subtareas lógicas y accionables.
+*   **Interactividad y Progreso**: Visualización dinámica del porcentaje de subtareas completadas por tarea, con una barra de progreso que se actualiza en tiempo real.
+*   **Diseño Responsivo e Iconografía Unificada**: Integración total de **React Icons** (`react-icons/fa`) para todos los elementos interactivos (cerrar, eliminar, editar, avanzar/retroceder en móvil, agregar y asistente de IA), evitando emojis genéricos en los botones de control.
+*   **Sincronización Local**: Carga con proyectos semilla de demostración en su primer inicio y almacena el estado completo en `localStorage` para persistencia continua.
+
 ---
 
 ## 📋 Configuración y Ejecución Local

@@ -50,7 +50,7 @@ const APPS = [
     href: "/finanzas",
     icon: (
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2500/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={2}
@@ -61,6 +61,27 @@ const APPS = [
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M2.25 8.25h19.5M2.25 9h19.5m-19.5 8.25h3m-3 0h3m-3 0V9a2.25 2.25 0 012.25-2.25h15A2.25 2.25 0 0121.75 9v8.25a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 17.25zM12 12.75h.008v.008H12v-.008zM12 15h.008v.008H12V15z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Proyectos",
+    description: "Organiza tus tareas en tableros Kanban, gestiona listas de pendientes y desglosa actividades complejas automáticamente con inteligencia artificial.",
+    href: "/proyectos",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="h-full w-full"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.25 2.25 0 0010.5 2.25h4.5a2.25 2.25 0 002.247 2.11m-11.233 4.75A2.25 2.25 0 003 11.25v7.5A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75v-7.5A2.25 2.25 0 0018.75 9H5.25z"
         />
       </svg>
     ),
@@ -111,8 +132,8 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Grid Layout (4 cols on mobile for app launcher menu, responsive grid on desktop) */}
-          <div className="grid grid-cols-4 gap-x-2 gap-y-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
+          {/* Grid Layout (3 cols on mobile for app launcher menu, responsive grid on desktop) */}
+          <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
             {APPS.map((app) => (
               <AppCard
                 key={app.title}
