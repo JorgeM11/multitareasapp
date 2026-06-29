@@ -404,14 +404,14 @@ export default function ProyectosPage() {
       <div className="absolute bottom-0 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-violet-900/10 blur-3xl" />
 
       {/* Main Container */}
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 flex-1 flex flex-col py-6 sm:py-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 flex-1 flex flex-col py-6 sm:py-8">
         
         {/* Header Navigation */}
         <header className="border-b border-slate-700/80 sm:border-slate-800/60 pb-5 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 active:scale-90 active:bg-slate-800 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               aria-label="Volver al inicio"
             >
               <FaArrowLeft className="h-4 w-4" />
@@ -441,7 +441,7 @@ export default function ProyectosPage() {
                 <button
                   type="button"
                   onClick={() => setShowProjectModal(true)}
-                  className="p-1.5 rounded-lg bg-indigo-650 hover:bg-indigo-600 border border-indigo-500/30 text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg bg-indigo-650 hover:bg-indigo-600 active:scale-90 active:bg-indigo-700 border border-indigo-500/30 text-white transition-all cursor-pointer"
                   title="Nuevo proyecto"
                 >
                   <FaPlus className="h-3 w-3" />
@@ -530,7 +530,7 @@ export default function ProyectosPage() {
                       <button
                         type="button"
                         onClick={() => setActiveTab("board")}
-                        className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all active:scale-95 cursor-pointer ${
                           activeTab === "board"
                             ? "bg-slate-900 border border-slate-850/50 text-white"
                             : "text-slate-500 hover:text-slate-350"
@@ -541,7 +541,7 @@ export default function ProyectosPage() {
                       <button
                         type="button"
                         onClick={() => setActiveTab("list")}
-                        className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all active:scale-95 cursor-pointer ${
                           activeTab === "list"
                             ? "bg-slate-900 border border-slate-850/50 text-white"
                             : "text-slate-500 hover:text-slate-350"
@@ -992,13 +992,13 @@ export default function ProyectosPage() {
                 <button
                   type="button"
                   onClick={() => setShowProjectModal(false)}
-                  className="px-4 py-2 text-xs font-bold rounded-xl bg-slate-950 border border-slate-850 hover:bg-slate-900 text-slate-400 hover:text-slate-200 cursor-pointer"
+                  className="px-4 py-2 text-xs font-bold rounded-xl bg-slate-950 border border-slate-850 hover:bg-slate-900 active:scale-95 active:bg-slate-900/80 text-slate-400 hover:text-slate-200 cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 text-xs font-bold rounded-xl bg-indigo-650 hover:bg-indigo-600 text-white cursor-pointer"
+                  className="px-5 py-2 text-xs font-bold rounded-xl bg-indigo-650 hover:bg-indigo-600 active:scale-95 active:bg-indigo-700 text-white cursor-pointer"
                 >
                   Crear
                 </button>
@@ -1012,7 +1012,7 @@ export default function ProyectosPage() {
       {/* DIALOG / MODAL: CREATE / EDIT TASK */}
       {/* ---------------------------------------------------- */}
       {showTaskModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 p-4 backdrop-blur-sm overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-start md:items-center justify-center bg-slate-950/85 p-4 backdrop-blur-sm overflow-y-auto">
           <div className="my-8 w-full max-w-2xl rounded-2xl border border-slate-850/80 bg-slate-900 p-6 shadow-2xl animate-in fade-in zoom-in duration-200">
             <h3 className="text-lg font-bold text-white mb-4">
               {taskModalMode === "create" ? "Crear Nueva Tarea" : "Editar Tarea"}
@@ -1178,13 +1178,13 @@ export default function ProyectosPage() {
                 <button
                   type="button"
                   onClick={() => setShowTaskModal(false)}
-                  className="px-4 py-2.5 text-xs font-bold rounded-xl bg-slate-950 border border-slate-850 hover:bg-slate-900 text-slate-400 hover:text-slate-200 cursor-pointer"
+                  className="px-4 py-2.5 text-xs font-bold rounded-xl bg-slate-950 border border-slate-850 hover:bg-slate-900 active:scale-95 active:bg-slate-900/80 text-slate-400 hover:text-slate-200 cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 text-xs font-bold rounded-xl bg-indigo-650 hover:bg-indigo-600 text-white cursor-pointer"
+                  className="px-5 py-2.5 text-xs font-bold rounded-xl bg-indigo-650 hover:bg-indigo-600 active:scale-95 active:bg-indigo-700 text-white cursor-pointer"
                 >
                   Guardar Tarea
                 </button>
@@ -1195,7 +1195,7 @@ export default function ProyectosPage() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-6 text-center text-xs text-slate-500 mt-8">
+      <footer className="relative z-0 border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-6 text-center text-xs text-slate-500 mt-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Sistema Multitarea. Gestor Inteligente.</p>
           <div className="flex gap-4">

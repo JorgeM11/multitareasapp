@@ -66,7 +66,7 @@ export default function CustomSelect({ value, onChange, options, id, label }) {
   };
 
   return (
-    <div className="relative w-full" ref={containerRef}>
+    <div className={`relative w-full ${isOpen ? "z-30" : "z-10"}`} ref={containerRef}>
       <button
         type="button"
         id={id}

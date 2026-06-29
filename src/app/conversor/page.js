@@ -142,7 +142,7 @@ export default function ConversorPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 active:scale-90 active:bg-slate-800 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               aria-label="Volver al inicio"
             >
               <svg
@@ -172,7 +172,7 @@ export default function ConversorPage() {
             <button
               onClick={fetchRates}
               disabled={loading}
-              className="group flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 font-semibold text-white shadow-md shadow-indigo-500/20 hover:bg-indigo-550 border border-indigo-500/50 hover:shadow-indigo-500/30 cursor-pointer transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-50"
+              className="group flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 font-semibold text-white shadow-md shadow-indigo-500/20 hover:bg-indigo-550 active:scale-90 border border-indigo-500/50 hover:shadow-indigo-500/30 cursor-pointer transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-50"
               aria-label="Actualizar tasas"
             >
               <svg
