@@ -309,11 +309,11 @@ export default function FinancePage() {
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 flex-1 flex flex-col py-6 sm:py-8">
         
         {/* Header Navigation */}
-        <header className="border-b border-slate-700/80 sm:border-slate-800/60 pb-5 mb-8 flex items-center justify-between gap-4">
+        <header className="border-b border-slate-700/80 sm:border-slate-800/60 pb-5 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-slate-850/80 text-slate-400 hover:text-white hover:border-slate-700 active:scale-90 active:bg-slate-800 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               aria-label="Volver al inicio"
             >
               <FaArrowLeft className="h-4 w-4" />
@@ -898,7 +898,7 @@ export default function FinancePage() {
                 disabled={chatLoading}
                 className="text-[10px] font-bold text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-900 border border-slate-850 hover:border-indigo-500/30 transition cursor-pointer"
               >
-                🍔 Gasto 20 hoy
+                🍔 Gaste 20 hoy
               </button>
               <button
                 onClick={() => handleSendAiMessage("Recibí 300 de sueldo ayer")}

@@ -4,7 +4,7 @@ export default function AppCard({ title, description, icon, href }) {
   return (
     <Link
       href={href}
-      className="group relative flex flex-col items-center text-center p-3 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:items-start sm:text-left sm:justify-between sm:overflow-hidden sm:rounded-2xl sm:border sm:border-slate-800/80 sm:bg-slate-900/40 sm:p-6 sm:backdrop-blur-md sm:hover:-translate-y-1 sm:hover:border-indigo-500/50 sm:hover:bg-slate-900/60 sm:hover:shadow-2xl sm:hover:shadow-indigo-500/10"
+      className="group relative flex flex-col items-center text-center p-4 rounded-2xl border border-slate-900/40 bg-slate-900/10 backdrop-blur-sm transition-all duration-200 hover:scale-[1.03] active:scale-95 active:bg-slate-900/40 active:border-indigo-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:items-start sm:text-left sm:justify-between sm:overflow-hidden sm:rounded-2xl sm:border sm:border-slate-800/80 sm:bg-slate-900/40 sm:p-6 sm:backdrop-blur-md sm:hover:-translate-y-1 sm:hover:border-indigo-500/50 sm:hover:bg-slate-900/60 sm:hover:shadow-2xl sm:hover:shadow-indigo-500/10"
       aria-label={`${title}: ${description}`}
     >
       {/* Background Glow Effect - Desktop Only */}
